@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>vue.js app</title>
+    <!-- import vue using a CDN -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <main class="grid place-items-center margin-top-2rem">
+            <section class="flex flex-wrap gap-2 mb-3">
+                <div class="flex-col flex">
+                    <p>sort by</p>
+
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-col gap-1">
+                            <div class="flex gap-sm-1 cursor-pointer">
+                                <input type="checkbox" id="subject" @change="updateSortKey" value="subject" />
+                                <label for="subject">subject</label>
+                            </div>
+                            <div class="flex gap-sm-1 cursor-pointer">
+                                <input type="checkbox" id="price" checked value="price" @change="updateSortKey" />
+                                <label for="price">price</label>
+                            </div>
+                            <div class="flex gap-sm-1 cursor-pointer">
+                                <input type="checkbox" id="location" @change="updateSortKey" value="location" />
+                                <label for="location">location</label>
+                            </div>
+
+                            <div class="flex gap-sm-1 cursor-pointer">
+                                <input type="checkbox" id="availability" @change="updateSortKey" value="availability" />
+                                <label for="availability">availability</label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <div class="flex gap-sm-1 cursor-pointer">
+                                <input type="radio" id="ascending" v-model="shouldBeAscending" @change="updateSortOrder"
+                                    :checked="sortOrder" :disabled="!sortOrder" />
+                                <label for="ascending">ascending</label>
+                            </div>
+
+                            <div class="flex gap-sm-1 cursor-pointer">
+                                <input type="radio" id="descending" v-model="shouldBeAscending"
+                                    @change="updateSortOrder" value="descending" :checked="!sortOrder" />
+                                <label for="descending">descending</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                    <!-- <div :src="c:\iPhone-15-Pro-Max-1.jpg" alt="WELL DONE"> -->
+
+                    <!-- </div> -->
+                
+
+                <section class="grid grid-col-4 mb-3 gap-2">
+                    <div v-for="(item) in sortedItems" :key="item.id">
+                        <div>
+                            <p>location: {{ item.location }}</p>
+                            <p>subject: {{item.subject}}</p>
+                            <p>price: {{item.price}}</p>
+                            <p>spaces: {{item.availability}}</p>
+                        </div>
+                        <button @click="updateCart(item)">add to cart</button>
+                    </div>
+
+                </section>
+            </section>
+            <cart-display :cart="cart" v-if="cart.length" class="grid grid-col-4 gap-2" />
+        </main>
+    </div>
+    <!-- Import App -->
+    <script src="./app.js"></script>
+
+    <!-- import components -->
+    <script src="./components/CartItems.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app')
+        console.log(mountedApp.cart, 'cart')
+    </script>
+
+    <script>
+    //     export default{
+    //         data() {
+    //             return {
+    //                 imageURL:'c:\iPhone-15-Pro-Max-1.jpg',
+    //             }
+    //         }
+    //     }
+    // </script>
+</body>
+
+</html>

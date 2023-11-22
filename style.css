@@ -1,0 +1,80 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-sm-1 {
+  gap: 0.5rem;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content {
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-col-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.place-items-center {
+  place-items: center;
+}
+
+.margin-top-2rem {
+  margin-top: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.main-section {
+  max-width: 40rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
